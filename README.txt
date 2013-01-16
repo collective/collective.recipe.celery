@@ -12,7 +12,7 @@ You can use it in a part like this::
     [celery]
     recipe = collective.recipe.celery
     broker-transport = sqlakombu.transport.Transport
-    broker-host = sqlite:///celery_broker.db
+    broker-url = sqlite:///celery_broker.db
     result-backend = database
     result-dburi = sqlite:///celery_results.db
     imports = myapp.tasks
@@ -60,8 +60,8 @@ broker-transport
     select one of the built-in transports: ``amqplib``, ``pika``, ``redis``, 
     ``beanstalk``, ``sqlalchemy``, ``django``, ``mongodb``, ``couchdb``.
 
-broker-host
-    The hostname of the broker.
+broker-url
+    The url of the broker.
 
 broker-port
     The port number of the broker.

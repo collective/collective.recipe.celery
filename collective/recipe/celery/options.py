@@ -2,7 +2,7 @@
 """
 
 STRING_OPTIONS = {
-    'broker-host': 'BROKER_HOST',
+    'broker-url' : 'BROKER_URL',
     'broker-password': 'BROKER_PASSWORD',
     'broker-transport': 'BROKER_TRANSPORT',
     'broker-user': 'BROKER_USER',
@@ -11,6 +11,7 @@ STRING_OPTIONS = {
     'celeryd-log-level': 'CELERYD_LOG_LEVEL',
     'result-backend': 'CELERY_RESULT_BACKEND',
     'result-dburi': 'CELERY_RESULT_DBURI',
+    'broker-host': 'BROKER_HOST',
 }
 
 NUMERIC_OPTIONS = {

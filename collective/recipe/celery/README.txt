@@ -13,7 +13,7 @@ We'll start by creating a buildout that uses the recipe::
     ... [celery]
     ... recipe = collective.recipe.celery
     ... broker-transport = sqlakombu.transport.Transport
-    ... broker-host = sqlite:///celery_broker.db
+    ... broker-url = sqlite:///celery_broker.db
     ... result-backend = database
     ... result-dburi = sqlite:///celery_results.db
     ... imports = myapp.tasks
@@ -46,8 +46,8 @@ Check that we got a celery config file::
 If we run the celeryd script, it prints out the config data::
 
     >>> print(system(join(sample_buildout, 'bin', 'celeryd')))
-    BROKER_HOST='sqlite:///celery_broker.db'
     BROKER_TRANSPORT='sqlakombu.transport.Transport'
+    BROKER_URL='sqlite:///celery_broker.db'
     CELERY_IMPORTS=('myapp.tasks',)
     CELERY_RESULT_BACKEND='database'
     CELERY_RESULT_DBURI='sqlite:///celery_results.db'
