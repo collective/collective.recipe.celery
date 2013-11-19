@@ -76,6 +76,7 @@ We can include additional eggs using the eggs option::
     Got other 1.0.
     Generated script '/sample-buildout/bin/celeryctl'.
     Generated script '/sample-buildout/bin/celeryd'.
+    Generated script '/sample-buildout/bin/distutilsscript'.
 
 We can control which scripts are generated using the scripts option.
 If no value is given, then script generation is disabled::
