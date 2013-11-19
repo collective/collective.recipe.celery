@@ -10,9 +10,10 @@ class Recipe(object):
     def __init__(self, buildout, name, options):
         self.buildout, self.name, self.options = buildout, name, options
 
-        options.setdefault('config-path',
-                os.path.join(self.buildout['buildout']['parts-directory'],
-                                 self.name))
+        options.setdefault(
+            'config-path',
+            os.path.join(self.buildout['buildout']['parts-directory'],
+            self.name))
 
         options['location'] = os.path.join(
             buildout['buildout']['parts-directory'],
