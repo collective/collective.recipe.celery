@@ -3,7 +3,7 @@ import os
 
 version = '1.0.1dev'
 
-tests_require = ['zope.testing', 'z3c.recipe.scripts']
+tests_require = ['zope.testing', 'z3c.recipe.scripts', 'manuel']
 
 setup(name='collective.recipe.celery',
       version=version,
