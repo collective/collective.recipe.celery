@@ -67,6 +67,4 @@ class Recipe(object):
 
         return [conf_filename] + list(celery_egg.install())
 
-    def update(self):
-        # Update should just install
-        self.install()
+    update = install
