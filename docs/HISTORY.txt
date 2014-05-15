@@ -4,7 +4,9 @@ Changelog
 1.0.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add broker-url and use in place of broker-host option, keep option for
+  backwards compatibility (< 2.5) but remove from documentation
+  [weak]
 
 
 1.0 (2011-08-15)
