@@ -4,6 +4,9 @@ Changelog
 1.0.1 (unreleased)
 ------------------
 
+- Python 3 support with 2to3
+  [SoftwareMaven]
+
 - Add broker-url and use in place of broker-host option, keep option for
   backwards compatibility (< 2.5) but remove from documentation
   [weak]
