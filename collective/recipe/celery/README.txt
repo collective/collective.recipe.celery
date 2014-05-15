@@ -76,6 +76,50 @@ We can include additional eggs using the eggs option::
     Got other 1.0.
     Generated script '/sample-buildout/bin/celeryctl'.
     Generated script '/sample-buildout/bin/celeryd'.
+    Generated script '/sample-buildout/bin/distutilsscript'.
+
+The recipe should handle updates as well, trigger this by pinning celery to
+another version and checking one of the outputted scripts.
+
+    >>> write(sample_buildout, 'buildout.cfg',
+    ... """
+    ... [buildout]
+    ... parts = celery
+    ... index = %(server)s/index
+    ... find-links = %(server)s
+    ...
+    ... [versions]
+    ... celery = 2.3.0
+    ...
+    ... [celery]
+    ... recipe = collective.recipe.celery
+    ... eggs =
+    ...     other
+    ... """% dict(server=link_server))
+
+    >>> print system(buildout),
+    Updating celery.
+    celery: Generated config file /sample-buildout/parts/celery/celeryconfig.py.
+    Getting distribution for 'celery==2.3.0'.
+    Got celery 2.3.0.
+    Generated script '/sample-buildout/bin/celeryctl'.
+    Generated script '/sample-buildout/bin/celeryd'.
+    Generated script '/sample-buildout/bin/distutilsscript'.
+
+    >>> cat(sample_buildout, 'bin', 'celeryctl')
+    #!...
+    <BLANKLINE>
+    import sys
+    sys.path[0:0] = [
+      '/sample-buildout/eggs/celery-2.3.0-py2.7.egg',
+      '/sample-buildout/eggs/other-1.0-py2.7.egg',
+      '/sample-buildout/parts/celery',
+      ]
+    <BLANKLINE>
+    import celery
+    <BLANKLINE>
+    if __name__ == '__main__':
+        sys.exit(celery.main())
 
 We can control which scripts are generated using the scripts option.
 If no value is given, then script generation is disabled::
