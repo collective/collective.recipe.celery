@@ -4,10 +4,8 @@ import shutil
 from doctest import ELLIPSIS, NORMALIZE_WHITESPACE, REPORT_UDIFF
 from doctest import DocFileSuite
 
-from zc.buildout.testing import buildoutTearDown
-from zc.buildout.testing import install_develop
-from zc.buildout.testing import normalize_path
-from zc.buildout.testing import bdist_egg
+from zc.buildout.testing import (
+    buildoutTearDown, install_develop, normalize_path, bdist_egg)
 from zc.buildout.tests import easy_install_SetUp
 from zope.testing import renormalizing
 
@@ -37,16 +35,32 @@ def create_celery_egg(test):
               "from setuptools import setup\n"
               "setup(name='celery', py_modules=['celery'],"
               " entry_points={'console_scripts': ['celeryd = celery:main', "
-                                                 "'celeryctl = celery:main']},"
+              "'celeryctl = celery:main']},"
               " zip_safe=True, version='2.3.1')\n")
+        bdist_egg(tmp, sys.executable, dest)
+        # Create another celery egg with a different version for testing
+        # updating the celery egg.
+        write(tmp, 'README.txt', '')
+        write(tmp, 'celery.py',
+              'import celeryconfig\n'
+              'def main():\n'
+              ' print "\\n".join(["%s=%s" % (opt, repr(getattr(celeryconfig, '
+              'opt))) for opt in dir(celeryconfig) if opt[0].isalpha()])\n')
+        write(tmp, 'setup.py',
+              "from setuptools import setup\n"
+              "setup(name='celery', py_modules=['celery'],"
+              " entry_points={'console_scripts': ['celeryd = celery:main', "
+              "'celeryctl = celery:main']},"
+              " zip_safe=True, version='2.3.0')\n")
         bdist_egg(tmp, sys.executable, dest)
 
     finally:
         shutil.rmtree(tmp)
 
+
 def test_suite():
     return DocFileSuite(
-           'README.txt',
-           setUp=setUp, tearDown=buildoutTearDown,
-           optionflags=ELLIPSIS | NORMALIZE_WHITESPACE | REPORT_UDIFF,
-           checker=renormalizing.RENormalizing([normalize_path]),)
+        'README.txt',
+        setUp=setUp, tearDown=buildoutTearDown,
+        optionflags=ELLIPSIS | NORMALIZE_WHITESPACE | REPORT_UDIFF,
+        checker=renormalizing.RENormalizing([normalize_path]),)
