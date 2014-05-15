@@ -4,6 +4,10 @@ Changelog
 1.0.1 (unreleased)
 ------------------
 
+- Fixed issue whereby changing version pins or development eggs would not
+  showup in the generated celery scripts by having update perform an install.
+  [shanx]
+
 - Python 3 support with 2to3
   [SoftwareMaven]
 
