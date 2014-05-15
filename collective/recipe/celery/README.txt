@@ -107,7 +107,7 @@ another version and checking one of the outputted scripts.
     Generated script '/sample-buildout/bin/distutilsscript'.
 
     >>> cat(sample_buildout, 'bin', 'celeryctl')
-    #!/Users/rwendt/Projects/python/bin/python
+    #!...
     <BLANKLINE>
     import sys
     sys.path[0:0] = [
