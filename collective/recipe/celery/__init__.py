@@ -59,6 +59,8 @@ class Recipe(object):
                                          + options['eggs'].split())
         if 'scripts' in options:
             celery_egg_options['scripts'] = options['scripts']
+        if 'initialization' in options:
+            celery_egg_options['initialization'] = options['initialization']
         celery_egg = zc.recipe.egg.Egg(
             self.buildout,
             self.name,
