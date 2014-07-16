@@ -49,6 +49,15 @@ config-path
         eggs = myapp
         extra-paths = ${celery:config-path}
 
+initialization
+    The initialization option lets us specify custom Python code to be included in the scripts.
+    e.g. set an environment variable::
+
+        [celery]
+        recipe = collective.recipe.celery
+        initialization = import os
+                         os.environ['DJANGO_SETTINGS_MODULE'] = '${buildout:site_name}.${django:settings}'
+
 Celery options
 --------------
 
