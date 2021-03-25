@@ -21,7 +21,7 @@ We'll start by creating a buildout that uses the recipe::
 
 Running the buildout gives us::
 
-    >>> print system(buildout)
+    >>> print(system(buildout))
     Installing celery.
     celery: Creating directory /sample-buildout/parts/celery.
     celery: Generated config file /sample-buildout/parts/celery/celeryconfig.py.
@@ -68,7 +68,7 @@ We can include additional eggs using the eggs option::
     ...     other
     ... """% dict(server=link_server))
 
-    >>> print system(buildout),
+    >>> print(system(buildout),)
     Uninstalling celery.
     Installing celery.
     celery: Generated config file /sample-buildout/parts/celery/celeryconfig.py.
@@ -97,7 +97,7 @@ another version and checking one of the outputted scripts.
     ...     other
     ... """% dict(server=link_server))
 
-    >>> print system(buildout),
+    >>> print(system(buildout),)
     Updating celery.
     celery: Generated config file /sample-buildout/parts/celery/celeryconfig.py.
     Getting distribution for 'celery==2.3.0'.
@@ -111,8 +111,8 @@ another version and checking one of the outputted scripts.
     <BLANKLINE>
     import sys
     sys.path[0:0] = [
-      '/sample-buildout/eggs/celery-2.3.0-py2.7.egg',
-      '/sample-buildout/eggs/other-1.0-py2.7.egg',
+      '/sample-buildout/eggs/celery-2.3.0-py....egg',
+      '/sample-buildout/eggs/other-1.0-py....egg',
       '/sample-buildout/parts/celery',
       ]
     <BLANKLINE>
@@ -136,7 +136,7 @@ If no value is given, then script generation is disabled::
     ... scripts =
     ... """% dict(server=link_server))
 
-    >>> print system(buildout),
+    >>> print(system(buildout),)
     Uninstalling celery.
     Installing celery.
     celery: Generated config file /sample-buildout/parts/celery/celeryconfig.py.
@@ -159,7 +159,7 @@ Let's create the celeryd script only::
     ...     celeryd
     ... """% dict(server=link_server))
 
-    >>> print system(buildout),
+    >>> print(system(buildout),)
     Uninstalling celery.
     Installing celery.
     celery: Generated config file /sample-buildout/parts/celery/celeryconfig.py.
@@ -188,7 +188,7 @@ strings, integers and tuples::
     ...     other.tasks
     ... """% dict(server=link_server))
 
-    >>> print system(buildout),
+    >>> print(system(buildout),)
     Uninstalling celery.
     Installing celery.
     celery: Generated config file /sample-buildout/parts/celery/celeryconfig.py.
@@ -223,7 +223,7 @@ additional directives can be added using the additional-config option::
     ...                                         "interval_max": 10}
     ... """% dict(server=link_server))
 
-    >>> print system(buildout),
+    >>> print(system(buildout),)
     Uninstalling celery.
     Installing celery.
     celery: Generated config file /sample-buildout/parts/celery/celeryconfig.py.
