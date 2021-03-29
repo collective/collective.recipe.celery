@@ -1,5 +1,9 @@
-recursive-include collective *
+include buildout.cfg
+include README.txt
 
-include README.md
+recursive-include collective *
+recursive-include docs *.GPL
+recursive-include docs *.txt
+
 
 prune *.pyc
