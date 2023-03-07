@@ -29,8 +29,8 @@ def create_celery_egg(test):
         write(tmp, 'celery.py',
               'import celeryconfig\n'
               'def main():\n'
-              ' print "\\n".join(["%s=%s" % (opt, repr(getattr(celeryconfig, '
-              'opt))) for opt in dir(celeryconfig) if opt[0].isalpha()])\n')
+              ' print("\\n".join(["%s=%s" % (opt, repr(getattr(celeryconfig, '
+              'opt))) for opt in dir(celeryconfig) if opt[0].isalpha()]))\n')
         write(tmp, 'setup.py',
               "from setuptools import setup\n"
               "setup(name='celery', py_modules=['celery'],"
@@ -44,8 +44,8 @@ def create_celery_egg(test):
         write(tmp, 'celery.py',
               'import celeryconfig\n'
               'def main():\n'
-              ' print "\\n".join(["%s=%s" % (opt, repr(getattr(celeryconfig, '
-              'opt))) for opt in dir(celeryconfig) if opt[0].isalpha()])\n')
+              ' print("\\n".join(["%s=%s" % (opt, repr(getattr(celeryconfig, '
+              'opt))) for opt in dir(celeryconfig) if opt[0].isalpha()]))\n')
         write(tmp, 'setup.py',
               "from setuptools import setup\n"
               "setup(name='celery', py_modules=['celery'],"

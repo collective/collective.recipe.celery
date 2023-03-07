@@ -2,7 +2,7 @@ import logging
 import os
 import zc.buildout
 import zc.recipe.egg
-from options import STRING_OPTIONS, NUMERIC_OPTIONS, SEQUENCE_OPTIONS
+from .options import STRING_OPTIONS, NUMERIC_OPTIONS, SEQUENCE_OPTIONS
 
 
 class Recipe(object):

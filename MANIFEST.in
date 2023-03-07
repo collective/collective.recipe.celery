@@ -1,0 +1,9 @@
+include buildout.cfg
+include README.txt
+
+recursive-include collective *
+recursive-include docs *.GPL
+recursive-include docs *.txt
+
+
+prune *.pyc
