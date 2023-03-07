@@ -2,23 +2,19 @@
 """
 
 STRING_OPTIONS = {
-    'broker-url' : 'BROKER_URL',
-    'broker-password': 'BROKER_PASSWORD',
-    'broker-transport': 'BROKER_TRANSPORT',
-    'broker-user': 'BROKER_USER',
-    'broker-vhost': 'BROKER_VHOST',
-    'celeryd-log-file': 'CELERYD_LOG_FILE',
-    'celeryd-log-level': 'CELERYD_LOG_LEVEL',
-    'result-backend': 'CELERY_RESULT_BACKEND',
-    'result-dburi': 'CELERY_RESULT_DBURI',
-    'broker-host': 'BROKER_HOST',
+    'broker-url': 'broker_url',
+    'broker-password': 'redis_password',
+    'broker-transport': 'broker_transport',
+    'broker-user': 'redis_username',
+    'result-backend': 'result_backend',
+    'broker-host': 'broker_host',
 }
 
 NUMERIC_OPTIONS = {
-    'broker-port': 'BROKER_PORT',
-    'celeryd-concurrency': 'CELERYD_CONCURRENCY',
+    'broker-port': 'broker_port',
+    'celeryd-concurrency': 'worker_concurrency',
 }
 
 SEQUENCE_OPTIONS = {
-    'imports': 'CELERY_IMPORTS',
+    'imports': 'imports',
 }
